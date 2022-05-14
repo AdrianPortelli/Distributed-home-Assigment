@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MicroServiceTwo.Model
+namespace MicroServiceThree.Model
 {
     [FirestoreData]
     public class FundAccount
@@ -21,7 +21,6 @@ namespace MicroServiceTwo.Model
         [FirestoreProperty]
         public string IBAN { get; set; }
 
-
         [FirestoreProperty]
         public string Country { get; set; }
 
@@ -34,9 +33,7 @@ namespace MicroServiceTwo.Model
         [FirestoreProperty]
         public int Balance { get; set; }
 
-
         [FirestoreProperty]
-
         public string Status { get; set; } // to check if status is disable or not-disabled
 
     }

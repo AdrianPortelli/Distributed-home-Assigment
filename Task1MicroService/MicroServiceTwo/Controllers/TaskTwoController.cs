@@ -22,7 +22,7 @@ namespace MicroServiceTwo.Controllers
         }
 
         [HttpGet("createfundaccount/{email}/{BankAccoutNo}/{Payee}/{BankCode}/{IBAN}/{Country}/{CurrencyCode}/{OpeningBalance}")]
-        public IActionResult CreateFundAccount(string email, string BankAccoutNo, string Payee, string BankCode, string IBAN, string Country, string CurrencyCode, string OpeningBalance)
+        public IActionResult CreateFundAccount(string email, string BankAccoutNo, string Payee, string BankCode, string IBAN, string Country, string CurrencyCode, int OpeningBalance)
         {
             FundAccount fundAccount = new FundAccount();
             User user = new User();
@@ -36,6 +36,7 @@ namespace MicroServiceTwo.Controllers
             fundAccount.Country = Country;
             fundAccount.CurrencyCode = CurrencyCode;
             fundAccount.OpeningBalance = OpeningBalance;
+            fundAccount.Balance = OpeningBalance;
             fundAccount.Status = "not-disabled";
 
             _firestore.AddFundAccount(user, fundAccount);
