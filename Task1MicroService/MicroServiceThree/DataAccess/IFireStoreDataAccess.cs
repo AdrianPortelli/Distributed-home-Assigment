@@ -9,8 +9,8 @@ namespace MicroServiceThree.DataAccess
 {
     public interface IFireStoreDataAccess
     {
-        Task<int> getbalance(string email, string backaccountno);
-        Task<bool> depositfunds(string email, string bankaccountno, int funds);
+        Task<double> getbalance(string email, string backaccountno);
+        Task<bool> depositfunds(string email, string bankaccountno, double funds);
      
     }
 }
