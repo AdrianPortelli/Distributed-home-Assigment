@@ -33,7 +33,6 @@ namespace MicroServiceThree.Controllers
                 transaction.AccountNo = bankaccountno;
                 transaction.TranscationType = "Deposit";
                 transaction.Funds = funds;
-                //log for other fund account
                 _firestore.createTransactionLog(transaction);
                 return Ok();
             }
@@ -58,8 +57,16 @@ namespace MicroServiceThree.Controllers
                 transaction.FundsTransferedSameOwnerAccountNo = depositbankaccountno;
                 transaction.Funds = funds;
 
+                Transactions transactionForAccountRecivingTransfer = new Transactions();
+                transactionForAccountRecivingTransfer.Email = email;
+                transactionForAccountRecivingTransfer.AccountNo = depositbankaccountno;
+                transactionForAccountRecivingTransfer.TranscationType = "Recived_transfer_From_Same_Owner_Account";
+                transactionForAccountRecivingTransfer.FundsTransferedSameOwnerAccountNo = withdrawbankaccountno;
+                transactionForAccountRecivingTransfer.Funds = funds;
+
                 //log for other fund account
                 _firestore.createTransactionLog(transaction);
+                _firestore.createTransactionLog(transactionForAccountRecivingTransfer);
                 return Ok();
             }
             else
@@ -71,7 +78,7 @@ namespace MicroServiceThree.Controllers
 
 
         [HttpGet("differntownerfundtransfer/{IBAN}/depositemail/{withdrawemail}/{withdrawbankaccountno}/{funds}")]
-        public IActionResult DifferntwnerFundTransfer(string IBAN, string depositemail, string withdrawemail, string withdrawbankaccountno, double funds)
+        public IActionResult DifferntOwnerFundTransfer(string IBAN, string depositemail, string withdrawemail, string withdrawbankaccountno, double funds)
         {
             bool check = _firestore.TranferFundsToDifferntOwner(withdrawemail, depositemail, withdrawbankaccountno, IBAN, funds);
 
@@ -85,8 +92,14 @@ namespace MicroServiceThree.Controllers
                 transaction.FundsTransferedtoIBAN = IBAN;
                 transaction.Funds = funds;
 
+                Transactions transactionForAccountRecivingTransfer = new Transactions();
+                transactionForAccountRecivingTransfer.Email = depositemail;
+                transactionForAccountRecivingTransfer.Funds = funds;
+                transactionForAccountRecivingTransfer.TranscationType = "Recived_transfer_From_Third_Party_Account";
                 //log for other fund account
+
                 _firestore.createTransactionLog(transaction);
+                _firestore.createTransactionLog(withdrawemail,withdrawbankaccountno, depositemail,IBAN, transactionForAccountRecivingTransfer);
                 return Ok();
             }
             else

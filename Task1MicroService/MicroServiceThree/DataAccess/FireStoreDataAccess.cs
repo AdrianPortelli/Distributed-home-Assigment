@@ -18,22 +18,37 @@ namespace MicroServiceThree.DataAccess
 
         ConvertionCal convertionCal = new ConvertionCal();
 
-        public async void createTransactionLog(Transactions transactions)
+        public async void createTransactionLog(Transactions transaction)
         {
-            var document = await db.Collection("transactions").Document(transactions.Email).GetSnapshotAsync();
+            var document = await db.Collection("transactions").Document(transaction.Email).GetSnapshotAsync();
             if (document.Exists)
             {
-                DocumentReference doc = db.Collection("transactions").Document(transactions.Email);
-                await doc.SetAsync(transactions);
+                DocumentReference doc = db.Collection("transactions").Document(transaction.Email);
+                await doc.SetAsync(transaction);
 
                 return;
             }
 
-            DocumentReference docRef = db.Collection("transactions").Document(transactions.Email);
-            await docRef.SetAsync(transactions);
+            DocumentReference docRef = db.Collection("transactions").Document(transaction.Email);
+            await docRef.SetAsync(transaction);
 
          
         }
+
+        public  void createTransactionLog(string withdrawalEmail,string withdrawalAccountNo,string IBAN,string email, Transactions transaction)
+        {
+            FundAccount fundAccount =  getFundAccountByIBAN(transaction.Email,IBAN).Result;
+            FundAccount withdrawalFundAccount = getFundAccount(withdrawalEmail, withdrawalAccountNo).Result;
+
+            transaction.FundsTransferedtoIBAN = withdrawalFundAccount.IBAN;
+            transaction.AccountNo = fundAccount.BankAccountNo;
+
+
+            createTransactionLog(transaction);
+        }
+
+
+
         private async Task<double> getbalance(string email, string backaccountno)
         {
             DocumentReference doc = db.Collection("users").Document(email).Collection("fundaccounts").Document(backaccountno);
@@ -62,6 +77,14 @@ namespace MicroServiceThree.DataAccess
             }
 
             return null;
+        }
+
+        private async Task<FundAccount> getFundAccount(string email,string bankaccountno)
+        {
+
+            DocumentReference docfa = db.Collection("users").Document(email).Collection("fundaccounts").Document(bankaccountno);
+            DocumentSnapshot snapshot = await docfa.GetSnapshotAsync();
+            return snapshot.ConvertTo<FundAccount>();
         }
 
         public bool TranferFundsToSameOwner(string email, string backAccountNoWithdraw, string backAccountNoDeposit, double fundstodeposit)
@@ -112,11 +135,8 @@ namespace MicroServiceThree.DataAccess
             
             }
             else
-            {
-
-                DocumentReference docfa = db.Collection("users").Document(email).Collection("fundaccounts").Document(bankaccountno);
-                DocumentSnapshot snapshot = await docfa.GetSnapshotAsync();
-                fundaccount = snapshot.ConvertTo<FundAccount>();
+            { 
+                fundaccount = getFundAccount(email, bankaccountno).Result;
             }
            
             
