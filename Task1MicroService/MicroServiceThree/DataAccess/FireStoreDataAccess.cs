@@ -18,7 +18,23 @@ namespace MicroServiceThree.DataAccess
 
         ConvertionCal convertionCal = new ConvertionCal();
 
-        public async Task<double> getbalance(string email, string backaccountno)
+        public async void createTransactionLog(Transactions transactions)
+        {
+            var document = await db.Collection("transactions").Document(transactions.Email).GetSnapshotAsync();
+            if (document.Exists)
+            {
+                DocumentReference doc = db.Collection("transactions").Document(transactions.Email);
+                await doc.SetAsync(transactions);
+
+                return;
+            }
+
+            DocumentReference docRef = db.Collection("transactions").Document(transactions.Email);
+            await docRef.SetAsync(transactions);
+
+         
+        }
+        private async Task<double> getbalance(string email, string backaccountno)
         {
             DocumentReference doc = db.Collection("users").Document(email).Collection("fundaccounts").Document(backaccountno);
             DocumentSnapshot snapshot = await doc.GetSnapshotAsync();
@@ -35,15 +51,27 @@ namespace MicroServiceThree.DataAccess
             }
         }
 
+        private async Task<FundAccount> getFundAccountByIBAN(string email,string IBAN)
+        {
+            Query query = db.Collection("users").Document(email).Collection("fundaccounts").WhereEqualTo("IBAN", IBAN);
+            QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
+            foreach (DocumentSnapshot documentSnapshot in querySnapshot.Documents)
+            {
+                FundAccount fundaccount = documentSnapshot.ConvertTo<FundAccount>();
+                return fundaccount;
+            }
 
-        public  bool sendFundsToSameOwner(string email, string backAccountNoWithdraw, string backAccountNoDeposit, double fundstodeposit)
+            return null;
+        }
+
+        public bool TranferFundsToSameOwner(string email, string backAccountNoWithdraw, string backAccountNoDeposit, double fundstodeposit)
         {
             // requires exchange rate
             FundAccount withdrawAccount = withdraw(email, backAccountNoWithdraw, fundstodeposit).Result;
 
             if (withdrawAccount != null)
             {
-               return depositFundsFromAnotherAccount(email, backAccountNoDeposit, fundstodeposit, withdrawAccount.CurrencyCode).Result;
+               return TranferFundsFromAnotherAccount(email, backAccountNoDeposit,null, fundstodeposit, withdrawAccount.CurrencyCode).Result;
             }
 
             return false;
@@ -51,15 +79,15 @@ namespace MicroServiceThree.DataAccess
         }
 
 
-        public  bool depositFundsToSameDifferntOwner (string email, string emailDeposit, string backAccountNoWithdraw, string backAccountNoDeposit, double fundstodeposit)
+        public  bool TranferFundsToDifferntOwner(string email, string emaildeposit,string backAccountNoWithdraw, string depositIBAN, double fundstodeposit)
         {
-            // requires exchange rate
+            
 
             FundAccount withdrawAccount = withdraw(email, backAccountNoWithdraw, fundstodeposit).Result;
 
             if (withdrawAccount != null)
             {
-                return depositFundsFromAnotherAccount(emailDeposit, backAccountNoDeposit, fundstodeposit, withdrawAccount.CurrencyCode).Result;
+                return TranferFundsFromAnotherAccount(emaildeposit, null , depositIBAN, fundstodeposit, withdrawAccount.CurrencyCode).Result;
             }
 
             return false;
@@ -68,21 +96,38 @@ namespace MicroServiceThree.DataAccess
 
         }
 
-        public async Task<bool> depositFundsFromAnotherAccount(string email, string bankaccountno, double fundstodeposit, string currencyCode)
+        private async Task<bool> TranferFundsFromAnotherAccount(string email , string bankaccountno,string depositIBAN, double fundstodeposit, string currencyCode)
         {
-            double balance = getbalance(email, bankaccountno).Result;
-            if (balance != int.MinValue)
+            FundAccount fundaccount = null;
+            if ( bankaccountno == null)
+            {
+               
+              
+                    fundaccount = getFundAccountByIBAN(email, depositIBAN).Result;
+                    if (fundaccount == null)
+                    {
+                        return false;
+                    }
+              
+            
+            }
+            else
             {
 
                 DocumentReference docfa = db.Collection("users").Document(email).Collection("fundaccounts").Document(bankaccountno);
                 DocumentSnapshot snapshot = await docfa.GetSnapshotAsync();
-                FundAccount fundaccount = snapshot.ConvertTo<FundAccount>();
-
+                fundaccount = snapshot.ConvertTo<FundAccount>();
+            }
+           
+            
+            if (fundaccount.Balance != int.MinValue)
+            {
+            
                 double convertedFunds = convertionCal.Convert(fundstodeposit, fundaccount.CurrencyCode, currencyCode);
 
 
-                DocumentReference doc = db.Collection("users").Document(email).Collection("fundaccounts").Document(bankaccountno);
-                await doc.UpdateAsync("Balance", balance + convertedFunds);
+                DocumentReference doc = db.Collection("users").Document(email).Collection("fundaccounts").Document(fundaccount.BankAccountNo);
+                await doc.UpdateAsync("Balance", fundaccount.Balance + convertedFunds);
 
 
                 return true;
@@ -133,5 +178,7 @@ namespace MicroServiceThree.DataAccess
 
             return null;
         }
+
+
     }
 }

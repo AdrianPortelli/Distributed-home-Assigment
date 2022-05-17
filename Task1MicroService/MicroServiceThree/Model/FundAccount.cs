@@ -28,10 +28,10 @@ namespace MicroServiceThree.Model
         public string CurrencyCode { get; set; }
 
         [FirestoreProperty]
-        public float OpeningBalance { get; set; }
+        public double OpeningBalance { get; set; }
 
         [FirestoreProperty]
-        public float Balance { get; set; }
+        public double Balance { get; set; }
 
         [FirestoreProperty]
         public string Status { get; set; } // to check if status is disable or not-disabled

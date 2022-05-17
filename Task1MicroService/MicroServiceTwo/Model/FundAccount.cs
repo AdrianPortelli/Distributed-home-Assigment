@@ -29,10 +29,10 @@ namespace MicroServiceTwo.Model
         public string CurrencyCode { get; set; }
 
         [FirestoreProperty]
-        public int OpeningBalance { get; set; }
+        public double OpeningBalance { get; set; }
 
         [FirestoreProperty]
-        public int Balance { get; set; }
+        public double Balance { get; set; }
 
 
         [FirestoreProperty]

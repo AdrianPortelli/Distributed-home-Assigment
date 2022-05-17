@@ -9,8 +9,11 @@ namespace MicroServiceThree.DataAccess
 {
     public interface IFireStoreDataAccess
     {
-        Task<double> getbalance(string email, string backaccountno);
+        void createTransactionLog(Transactions transactions);
         Task<bool> depositfunds(string email, string bankaccountno, double funds);
-     
+        bool TranferFundsToSameOwner(string email, string backAccountNoWithdraw, string backAccountNoDeposit, double fundstodeposit);
+        bool TranferFundsToDifferntOwner(string email, string emaildeposit, string backAccountNoWithdraw, string depositIBAN, double fundstodeposit);
+
+
     }
 }

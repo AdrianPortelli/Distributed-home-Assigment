@@ -59,7 +59,7 @@ namespace MicroServiceThree.API
 
             JsonDocument jsonDocument = webclient.Request(request).Result;
 
-            JsonElement root = jsonDocument.RootElement.GetProperty("rates")[0];
+            JsonElement root = jsonDocument.RootElement.GetProperty("rates");
 
             #region jsonparsing
 

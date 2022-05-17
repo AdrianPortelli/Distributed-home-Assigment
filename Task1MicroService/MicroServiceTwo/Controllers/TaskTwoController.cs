@@ -67,6 +67,7 @@ namespace MicroServiceTwo.Controllers
             Task<List <FundAccount>> fundAccounts = _firestore.GetFundAccounts(email);
             var json = JsonConvert.SerializeObject(fundAccounts.Result);
 
+
             if (fundAccounts.Result.Count == 0)
             {
                 return NoContent();
