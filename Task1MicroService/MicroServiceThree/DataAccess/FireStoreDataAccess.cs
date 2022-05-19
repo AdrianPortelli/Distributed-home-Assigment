@@ -23,19 +23,19 @@ namespace MicroServiceThree.DataAccess
             var document = await db.Collection("transactions").Document(transaction.Email).GetSnapshotAsync();
             if (document.Exists)
             {
-                DocumentReference doc = db.Collection("transactions").Document(transaction.Email);
+                DocumentReference doc = db.Collection("transactions").Document(transaction.Email).Collection("fundaccounttransactions").Document(transaction.ID);
                 await doc.SetAsync(transaction);
 
                 return;
             }
 
-            DocumentReference docRef = db.Collection("transactions").Document(transaction.Email);
+            DocumentReference docRef = db.Collection("transactions").Document(transaction.Email).Collection("fundaccounttransactions").Document(transaction.ID);
             await docRef.SetAsync(transaction);
 
          
         }
 
-        public  void createTransactionLog(string withdrawalEmail,string withdrawalAccountNo,string IBAN,string email, Transactions transaction)
+        public  void createTransactionLog(string withdrawalEmail,string withdrawalAccountNo,string IBAN,Transactions transaction)
         {
             FundAccount fundAccount =  getFundAccountByIBAN(transaction.Email,IBAN).Result;
             FundAccount withdrawalFundAccount = getFundAccount(withdrawalEmail, withdrawalAccountNo).Result;

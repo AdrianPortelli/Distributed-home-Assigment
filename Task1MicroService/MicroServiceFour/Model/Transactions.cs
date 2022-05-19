@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MicroServiceThree.Model
+namespace MicroServiceFour.Model
 {
     [FirestoreData]
     public class Transactions
     {
+
         [FirestoreProperty]
         public string ID { get; set; }
 

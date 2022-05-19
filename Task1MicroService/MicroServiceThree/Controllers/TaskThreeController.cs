@@ -29,10 +29,12 @@ namespace MicroServiceThree.Controllers
             if (check == true)
             {
                 Transactions transaction = new Transactions();
+                transaction.ID = Guid.NewGuid().ToString();
                 transaction.Email = email;
                 transaction.AccountNo = bankaccountno;
                 transaction.TranscationType = "Deposit";
                 transaction.Funds = funds;
+                transaction.TranscationDateTime =  DateTime.UtcNow;
                 _firestore.createTransactionLog(transaction);
                 return Ok();
             }
@@ -51,18 +53,22 @@ namespace MicroServiceThree.Controllers
             if (check == true)
             {
                 Transactions transaction = new Transactions();
+                transaction.ID = Guid.NewGuid().ToString();
                 transaction.Email = email;
                 transaction.AccountNo = withdrawbankaccountno;
                 transaction.TranscationType = "Transfer_Same_Owner_Account";
                 transaction.FundsTransferedSameOwnerAccountNo = depositbankaccountno;
                 transaction.Funds = funds;
+                transaction.TranscationDateTime = DateTime.UtcNow;
 
                 Transactions transactionForAccountRecivingTransfer = new Transactions();
+                transactionForAccountRecivingTransfer.ID = Guid.NewGuid().ToString();
                 transactionForAccountRecivingTransfer.Email = email;
                 transactionForAccountRecivingTransfer.AccountNo = depositbankaccountno;
                 transactionForAccountRecivingTransfer.TranscationType = "Recived_transfer_From_Same_Owner_Account";
                 transactionForAccountRecivingTransfer.FundsTransferedSameOwnerAccountNo = withdrawbankaccountno;
                 transactionForAccountRecivingTransfer.Funds = funds;
+                transactionForAccountRecivingTransfer.TranscationDateTime = DateTime.UtcNow;
 
                 //log for other fund account
                 _firestore.createTransactionLog(transaction);
@@ -86,20 +92,24 @@ namespace MicroServiceThree.Controllers
             {
                 
                 Transactions transaction = new Transactions();
+                transaction.ID = Guid.NewGuid().ToString();
                 transaction.Email = withdrawemail;
                 transaction.AccountNo = withdrawbankaccountno;
                 transaction.TranscationType = "Transfer_Different_Owner";
                 transaction.FundsTransferedtoIBAN = IBAN;
                 transaction.Funds = funds;
+                transaction.TranscationDateTime = DateTime.UtcNow;
 
                 Transactions transactionForAccountRecivingTransfer = new Transactions();
+                transactionForAccountRecivingTransfer.ID = Guid.NewGuid().ToString(); 
                 transactionForAccountRecivingTransfer.Email = depositemail;
                 transactionForAccountRecivingTransfer.Funds = funds;
                 transactionForAccountRecivingTransfer.TranscationType = "Recived_transfer_From_Third_Party_Account";
+                transactionForAccountRecivingTransfer.TranscationDateTime = DateTime.UtcNow;
                 //log for other fund account
 
                 _firestore.createTransactionLog(transaction);
-                _firestore.createTransactionLog(withdrawemail,withdrawbankaccountno, depositemail,IBAN, transactionForAccountRecivingTransfer);
+                _firestore.createTransactionLog(withdrawemail,withdrawbankaccountno,IBAN, transactionForAccountRecivingTransfer);
                 return Ok();
             }
             else
