@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroServiceTwo", "MicroSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroServiceThree", "MicroServiceThree\MicroServiceThree.csproj", "{C87C4C45-E679-4DEF-8A13-DFBE16AB4903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServiceFour", "MicroServiceFour\MicroServiceFour.csproj", "{BEF8D71B-DD96-41B9-9422-131129BA9A5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroServiceFour", "MicroServiceFour\MicroServiceFour.csproj", "{BEF8D71B-DD96-41B9-9422-131129BA9A5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServiceFive", "MicroServiceFive\MicroServiceFive.csproj", "{1958F166-2802-4F5C-8188-DE998F3D139C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroServiceFive", "MicroServiceFive\MicroServiceFive.csproj", "{1958F166-2802-4F5C-8188-DE998F3D139C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroServiceSix", "MicroServiceSix\MicroServiceSix.csproj", "{9165098C-AED5-46AF-8B82-DAE56289803B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1958F166-2802-4F5C-8188-DE998F3D139C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1958F166-2802-4F5C-8188-DE998F3D139C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1958F166-2802-4F5C-8188-DE998F3D139C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9165098C-AED5-46AF-8B82-DAE56289803B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9165098C-AED5-46AF-8B82-DAE56289803B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9165098C-AED5-46AF-8B82-DAE56289803B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9165098C-AED5-46AF-8B82-DAE56289803B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
