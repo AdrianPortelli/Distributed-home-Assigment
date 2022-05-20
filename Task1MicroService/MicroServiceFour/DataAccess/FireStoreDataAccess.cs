@@ -51,7 +51,7 @@ namespace MicroServiceFour.DataAccess
         public async Task<List<Transactions>> GetTransactionsByDateRange(string email, DateTime start,DateTime end)
         {
             List<Transactions> users = new List<Transactions>();
-            Query document = db.Collection("transactions").Document(email).Collection("fundaccounttransactions").WhereGreaterThan("TranscationDateTime",start).WhereLessThanOrEqualTo("TranscationDateTime",end);
+            Query document = db.Collection("transactions").Document(email).Collection("fundaccounttransactions").WhereGreaterThanOrEqualTo("TranscationDateTime",start).WhereLessThanOrEqualTo("TranscationDateTime",end);
             QuerySnapshot allusers = await document.GetSnapshotAsync();
 
 

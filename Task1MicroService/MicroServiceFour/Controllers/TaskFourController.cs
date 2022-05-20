@@ -45,10 +45,10 @@ namespace MicroServiceFour.Controllers
         [HttpGet("gettranscationsbyaccoutno/{email}/{start}/{end}")]
         public IActionResult getTranscationsByRange(string email,string start,string end)
         {
-            DateTime startDT = DateTime.Parse(start);
-            DateTime endDT = DateTime.Parse(end);
+            DateTime startDT = DateTimeOffset.Parse(start).UtcDateTime.ToUniversalTime();
+            DateTime endDT = DateTimeOffset.Parse(end).UtcDateTime.ToUniversalTime();
 
-            List<Transactions> transactions = _firestore.GetTransactionsByDateRange(email, startDT, startDT, endDT).Result;
+            List<Transactions> transactions = _firestore.GetTransactionsByDateRange(email,startDT, endDT).Result;
             var json = JsonConvert.SerializeObject(transactions);
             return Ok(json);
         }
