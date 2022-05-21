@@ -4,8 +4,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Google.Cloud.SecretManager.V1;
 using MicroServiceThree.Model;
 using MicroServiceThree.WebClient;
+using Newtonsoft.Json;
 
 namespace MicroServiceThree.API
 {
@@ -40,6 +42,18 @@ namespace MicroServiceThree.API
 
         private HttpRequestMessage GetRequestMessage(string endpoint, string basecur, string symbols)
         {
+
+            SecretManagerServiceClient client = SecretManagerServiceClient.Create();
+            // Build the resource name.
+            SecretVersionName secretVersionName = new SecretVersionName("distributedprograming", "secrect-distributed-programing", "2");
+            // Call the API.
+            AccessSecretVersionResponse result = client.AccessSecretVersion(secretVersionName);
+            // Convert the payload to a string. Payloads are bytes by default.
+            String payload = result.Payload.Data.ToStringUtf8();
+            dynamic jsonData = JsonConvert.DeserializeObject(payload);
+
+            string api_key = Convert.ToString(jsonData["api_key_exchangerate"]);
+
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
@@ -47,7 +61,7 @@ namespace MicroServiceThree.API
                 
             };
 
-            request.Headers.Add("apikey", "c0i0tDCiRTcuBU0PgEjftm2TnmzX0Wiu");
+            request.Headers.Add("apikey", api_key);
             return request;
         }
 
