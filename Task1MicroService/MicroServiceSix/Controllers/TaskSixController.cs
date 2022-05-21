@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MicroServiceSix.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class TaskSixController : ControllerBase
     {
@@ -30,7 +30,12 @@ namespace MicroServiceSix.Controllers
 
             if(exchangeRateModel == null)
             {
-                NotFound();
+
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Unsuccessful";
+                var json_getExchangRate = JsonConvert.SerializeObject(jsonStatus);
+                
+                NotFound(json_getExchangRate);
             }
             var json = JsonConvert.SerializeObject(exchangeRateModel);
             return Ok(json);

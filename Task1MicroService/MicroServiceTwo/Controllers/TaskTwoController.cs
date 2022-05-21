@@ -41,7 +41,12 @@ namespace MicroServiceTwo.Controllers
 
             _firestore.AddFundAccount(user, fundAccount);
 
-            return Ok();
+
+            jsonStatus jsonStatus = new jsonStatus();
+            jsonStatus.Status = "Successful";
+            var json  = JsonConvert.SerializeObject(jsonStatus);
+            return Ok(json);
+           
         }
 
 
@@ -50,13 +55,21 @@ namespace MicroServiceTwo.Controllers
         public IActionResult DisableFundAccount(string email, string BankAccoutNo)
         {
              Task<bool> check =  _firestore.DisableFundAccount(email, BankAccoutNo);
+           
+
 
             if(check.Result == true){
-                return Ok();
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Successful";
+                var json  = JsonConvert.SerializeObject(jsonStatus);
+                return Ok(json);
             }
             else
             {
-                return NotFound();
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Unsuccessful";
+                var json = JsonConvert.SerializeObject(jsonStatus);
+                return NotFound(json);
             }
         }
 
@@ -70,11 +83,18 @@ namespace MicroServiceTwo.Controllers
 
             if (fundAccounts.Result.Count == 0)
             {
-                return NoContent();
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Unsuccessful";
+                var json_listfund = JsonConvert.SerializeObject(jsonStatus);
+
+                return NotFound(json_listfund);
             }
             else
             {
-                return Ok(json);
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Successful";
+                var json_listfund = JsonConvert.SerializeObject(jsonStatus);
+                return Ok(json_listfund);
             }
         }
 
@@ -89,7 +109,11 @@ namespace MicroServiceTwo.Controllers
 
             if (fundAccount.Result == null)
             {
-                return NoContent();
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Unsuccessful";
+                var json_listfund = JsonConvert.SerializeObject(jsonStatus);
+
+                return NotFound(json_listfund);
             }
             else
             {

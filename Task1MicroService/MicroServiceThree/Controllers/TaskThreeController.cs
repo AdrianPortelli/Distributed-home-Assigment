@@ -2,6 +2,7 @@
 using MicroServiceThree.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,11 +37,18 @@ namespace MicroServiceThree.Controllers
                 transaction.Funds = funds;
                 transaction.TranscationDateTime =  DateTime.UtcNow;
                 _firestore.createTransactionLog(transaction);
-                return Ok();
+
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Successful";
+                var json = JsonConvert.SerializeObject(jsonStatus);
+                return Ok(json);
             }
             else
             {
-                return NotFound();
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Unsuccessful";
+                var json = JsonConvert.SerializeObject(jsonStatus);
+                return NotFound(json);
             }
 
         }
@@ -73,11 +81,20 @@ namespace MicroServiceThree.Controllers
                 //log for other fund account
                 _firestore.createTransactionLog(transaction);
                 _firestore.createTransactionLog(transactionForAccountRecivingTransfer);
-                return Ok();
+
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Successful";
+                var json = JsonConvert.SerializeObject(jsonStatus);
+                return Ok(json);
             }
             else
             {
-                return NotFound();
+
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Unsuccessful";
+                var json = JsonConvert.SerializeObject(jsonStatus);
+             
+                return NotFound(json);
             }
 
         }
@@ -110,11 +127,19 @@ namespace MicroServiceThree.Controllers
 
                 _firestore.createTransactionLog(transaction);
                 _firestore.createTransactionLog(withdrawemail,withdrawbankaccountno,IBAN, transactionForAccountRecivingTransfer);
-                return Ok();
+
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Successful";
+                var json = JsonConvert.SerializeObject(jsonStatus);
+                return Ok(json);
             }
             else
             {
-                return NotFound();
+
+                jsonStatus jsonStatus = new jsonStatus();
+                jsonStatus.Status = "Unsuccessful";
+                var json = JsonConvert.SerializeObject(jsonStatus);
+                return NotFound(json);
             }
 
         }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MicroServiceSeven.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class TaskSevenController : ControllerBase
     {
