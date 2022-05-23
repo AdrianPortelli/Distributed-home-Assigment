@@ -91,10 +91,8 @@ namespace MicroServiceTwo.Controllers
             }
             else
             {
-                jsonStatus jsonStatus = new jsonStatus();
-                jsonStatus.Status = "Successful";
-                var json_listfund = JsonConvert.SerializeObject(jsonStatus);
-                return Ok(json_listfund);
+            
+                return Ok(json);
             }
         }
 

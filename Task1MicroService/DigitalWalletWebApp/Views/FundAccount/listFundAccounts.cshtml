@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DigitalWalletWebApp.Models.FundAccount>
+
+@{
+    ViewData["Title"] = "listFundAccounts";
+}
+
+<h1>listFundAccounts</h1>
+
+<p>
+    <a asp-action="createFundAccount">Create New Fund Account</a>
+</p>
+<p>
+    <a asp-action="searchFundAccount">Search Account</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BankAccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IBAN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CurrencyCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @if (item.Status != "disabled")
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.BankAccountNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IBAN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Country)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    <input type="button" value="Convert" onclick="location.href='@Url.Action("disableAccount", "FundAccount", new { accountno = item.BankAccountNo })'" />
+                </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>

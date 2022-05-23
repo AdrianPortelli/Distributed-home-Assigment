@@ -47,5 +47,7 @@ namespace DigitalWalletWebApp.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index");
         }
+
+
     }
 }

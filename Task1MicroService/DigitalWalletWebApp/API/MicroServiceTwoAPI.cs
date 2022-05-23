@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using DigitalWalletWebApp.Models;
@@ -33,12 +35,12 @@ namespace DigitalWalletWebApp.API
 
 
 
-        private HttpRequestMessage GetRequestMessageCreateAccount(string hostEndpoint, string email, string BankAccoutNo, string Payee, string BankCode, string IBAN, string Country, string CurrencyCode, int OpeningBalance) { 
+        private HttpRequestMessage GetRequestMessageCreateAccount(string hostEndpoint, string email, string BankAccoutNo, string Payee, string BankCode, string IBAN, string Country, string CurrencyCode, double OpeningBalance) { 
 
             var request = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri(hostEndpoint + "/api/v1/TaskTwo/createfundaccount"+"/"+email+"/"+BankAccoutNo+"/"+Payee+"/"+BankCode+"/"+IBAN+"/"+Country+"/"+CurrencyCode+"/"+OpeningBalance),
+                RequestUri = new Uri(hostEndpoint + "/api/v1/TaskTwo/createfundaccount" + "/"+email+"/"+BankAccoutNo+"/"+Payee+"/"+BankCode+"/"+IBAN+"/"+Country+"/"+CurrencyCode+"/"+OpeningBalance),
                 
             };
 
@@ -70,7 +72,7 @@ namespace DigitalWalletWebApp.API
 
 
 
-        public string createAccount(string hostEndpoint, string email, string BankAccoutNo, string Payee, string BankCode, string IBAN, string Country, string CurrencyCode, int OpeningBalance)
+        public string createAccount(string hostEndpoint, string email, string BankAccoutNo, string Payee, string BankCode, string IBAN, string Country, string CurrencyCode, double OpeningBalance)
         {
             
             var request = GetRequestMessageCreateAccount(hostEndpoint, email, BankAccoutNo,  Payee,  BankCode, IBAN,Country,CurrencyCode,OpeningBalance);
@@ -99,18 +101,28 @@ namespace DigitalWalletWebApp.API
 
             JsonElement root = jsonDocument.RootElement;
 
-            string status = null;
-            if (root.TryGetProperty("Status", out JsonElement statusJson))
+            string test = "";
+            using (var stream = new MemoryStream())
             {
-                status = statusJson.GetString();
-
-                if (status.Equals("Unsuccessful"))
-                {
-                    return null;
-                }
+                Utf8JsonWriter writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+                root.WriteTo(writer);
+                writer.Flush();
+                test =  Encoding.UTF8.GetString(stream.ToArray());
             }
+            
+            /*      string status = null;
+                  if (root.TryGetProperty("Status", out JsonElement statusJson))
+                  {
+                      status = statusJson.GetString();
 
-            return JsonConvert.DeserializeObject<List<FundAccount>>(root.GetString());// not sure it works requires testing
+                      if (status.Equals("Unsuccessful"))
+                      {
+                          return null;
+                      }
+                  }*/
+
+            return JsonConvert.DeserializeObject<List<FundAccount>>(test);// not sure it works requires testing
+
 
         }
 
