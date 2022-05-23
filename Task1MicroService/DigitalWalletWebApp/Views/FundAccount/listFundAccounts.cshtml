@@ -51,7 +51,7 @@
                     @Html.DisplayFor(modelItem => item.Balance)
                 </td>
                 <td>
-                    <input type="button" value="Convert" onclick="location.href='@Url.Action("disableAccount", "FundAccount", new { accountno = item.BankAccountNo })'" />
+                    <input type="button" value="Disable Account" onclick="location.href='@Url.Action("disableAccount", "FundAccount", new { accountno = item.BankAccountNo })'" />
                 </td>
             }
         </tr>

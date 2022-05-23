@@ -100,7 +100,7 @@ namespace MicroServiceThree.Controllers
         }
 
 
-        [HttpGet("differntownerfundtransfer/{IBAN}/depositemail/{withdrawemail}/{withdrawbankaccountno}/{funds}")]
+        [HttpGet("differntownerfundtransfer/{IBAN}/{depositemail}/{withdrawemail}/{withdrawbankaccountno}/{funds}")]
         public IActionResult DifferntOwnerFundTransfer(string IBAN, string depositemail, string withdrawemail, string withdrawbankaccountno, double funds)
         {
             bool check = _firestore.TranferFundsToDifferntOwner(withdrawemail, depositemail, withdrawbankaccountno, IBAN, funds);
