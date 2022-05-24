@@ -1,4 +1,5 @@
 ﻿using MicroServiceSeven.API;
+using MicroServiceSeven.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -18,7 +19,7 @@ namespace MicroServiceSeven.Controllers
         [HttpGet("getalltweets")]
         public IActionResult getalltweets()
         {
-            List<string> news = twitterApi.getRecentNews().text;
+            List<twitterModel> news = twitterApi.getRecentNews();
             var json = JsonConvert.SerializeObject(news);
 
             return Ok(json);

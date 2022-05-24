@@ -15,9 +15,10 @@ namespace DigitalWalletWebApp
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment host)
         {
             Configuration = configuration;
+            System.Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", host.ContentRootPath + @"/distributedprograming-fc1beab0204c.json");
         }
 
         public IConfiguration Configuration { get; }

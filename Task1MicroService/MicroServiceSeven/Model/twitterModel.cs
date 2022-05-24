@@ -7,7 +7,7 @@ namespace MicroServiceSeven.Model
 {
     public class twitterModel
     {
-        public List<string> text { get; set; }
+        public string text { get; set; }
 
     }
 }

@@ -64,10 +64,9 @@ namespace MicroServiceSeven.API
         }
 
 
-        public twitterModel getRecentNews()
+        public List<twitterModel> getRecentNews()
         {
-            twitterModel twittermodel = new twitterModel();
-            twittermodel.text = new List<string>();
+            List < twitterModel > twitterModels = new List<twitterModel>();
 
             var request = GetRequestMessage();
 
@@ -81,12 +80,15 @@ namespace MicroServiceSeven.API
 
                 if (root.TryGetProperty("text", out JsonElement text))
                 {
-                    twittermodel.text.Add(text.GetString());
+                    twitterModel twitterModel = new twitterModel();
+                    twitterModel.text = text.GetString();
+
+                    twitterModels.Add(twitterModel);
                 }
 
             }
 
-            return twittermodel;
+            return twitterModels;
         }
 
     }
