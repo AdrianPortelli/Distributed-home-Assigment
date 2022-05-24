@@ -15,10 +15,12 @@ namespace DigitalWalletWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IFireStoreDataAccess _firestore;
         private PubSubDataAccess pubSubDataAccess = new PubSubDataAccess(); 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,IFireStoreDataAccess firestore)
         {
             _logger = logger;
+            _firestore = firestore;
         }
 
         public IActionResult Index()
@@ -40,7 +42,10 @@ namespace DigitalWalletWebApp.Controllers
         [Authorize]
         public async Task<IActionResult> LogIn()
         {
-            await pubSubDataAccess.Publish_Info_LastestTweets(new Models.User { Email = User.Claims.ElementAt(4).Value }); ;
+            await pubSubDataAccess.Publish_Info_LastestTweets(new Models.User { Email = User.Claims.ElementAt(4).Value });
+            PrefSymbols prefSymbols = await _firestore.getPrefCurrenies(User.Claims.ElementAt(4).Value);
+
+            await pubSubDataAccess.Publish_Info_LastestExchangeRates(new PrefExchangeRates { Email = User.Claims.ElementAt(4).Value, Symbols = prefSymbols.symbols });
 
             return RedirectToAction("Index");
         }
@@ -51,6 +56,34 @@ namespace DigitalWalletWebApp.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> viewLastestNews()
+        {
+             LatestNew ln = await _firestore.getLatestNews(User.Claims.ElementAt(4).Value);
+
+            return View(ln);
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult savePrefSymbols()
+        {
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> savePrefSymbols(PrefSymbols prefSymbols)
+        {
+            await _firestore.savePrefCurrecnies(User.Claims.ElementAt(4).Value, prefSymbols);
+
+            PrefSymbols ps = await _firestore.getPrefCurrenies(User.Claims.ElementAt(4).Value);
+
+            await pubSubDataAccess.Publish_Info_LastestExchangeRates(new PrefExchangeRates { Email = User.Claims.ElementAt(4).Value, Symbols = ps.symbols });
+
+            return View();
+        }
 
     }
 }

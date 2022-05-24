@@ -1,0 +1,108 @@
+﻿@model DigitalWalletWebApp.Models.LatestNew
+
+@{
+    ViewData["Title"] = "LatestNews";
+}
+
+<h1>viewLastestNews</h1>
+
+<div>
+    <h4>LatestNew</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet5)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet6)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet6)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet7)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet7)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet8)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet8)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet9)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet9)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet10)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet10)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet11)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet11)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet12)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet12)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet13)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet13)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet14)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet14)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tweet15)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tweet15)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
