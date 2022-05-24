@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DigitalWalletWebApp.Models.Transactions>
+
+@{
+    ViewData["Title"] = "AllTranscations";
+}
+
+<h1>AllTranscations</h1>
+
+<p>
+    <a asp-action="filterByAccountno">Filter By AccountNo</a>
+    <a asp-action="filterByDateRange">Filter By Date Range</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TranscationDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TranscationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FundsTransferedSameOwnerAccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FundsTransferedtoIBAN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funds)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TranscationDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TranscationType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FundsTransferedSameOwnerAccountNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FundsTransferedtoIBAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funds)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

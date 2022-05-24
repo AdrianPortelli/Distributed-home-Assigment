@@ -1,4 +1,5 @@
-﻿using DigitalWalletWebApp.Models;
+﻿using DigitalWalletWebApp.DataAccess;
+using DigitalWalletWebApp.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ namespace DigitalWalletWebApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private PubSubDataAccess pubSubDataAccess = new PubSubDataAccess(); 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -37,8 +38,10 @@ namespace DigitalWalletWebApp.Controllers
         }
 
         [Authorize]
-        public IActionResult LogIn()
+        public async Task<IActionResult> LogIn()
         {
+            await pubSubDataAccess.Publish_Info_LastestTweets(new Models.User { Email = User.Claims.ElementAt(4).Value }); ;
+
             return RedirectToAction("Index");
         }
 

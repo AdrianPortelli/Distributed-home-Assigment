@@ -2,6 +2,7 @@
 using DigitalWalletWebApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,14 +65,14 @@ namespace DigitalWalletWebApp.Controllers
 
         [Authorize]
         [HttpGet]
-        public IActionResult displayFundAccount(FundAccount fundAccount)
+        public IActionResult displayFundAccount(string jsonString)
         {
-           
+            FundAccount fundAccount = JsonConvert.DeserializeObject<FundAccount>(jsonString);
             return View(fundAccount);
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpGet]
         public IActionResult searchFundAccount()
         {
             return View();
@@ -88,10 +89,10 @@ namespace DigitalWalletWebApp.Controllers
             {
                 return RedirectToAction("listFundAccounts");
             }
-
+            string json = JsonConvert.SerializeObject(fundaccount);
             return RedirectToAction("displayFundAccount", new
             {
-                fundAccount = fundaccount
+                jsonString = json
             });
         }
     }

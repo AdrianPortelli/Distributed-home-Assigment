@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DigitalWalletWebApp.Model
+namespace DigitalWalletWebApp.Models
 {
     
     public class Transactions

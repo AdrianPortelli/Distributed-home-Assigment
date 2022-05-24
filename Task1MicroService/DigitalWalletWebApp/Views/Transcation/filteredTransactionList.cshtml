@@ -1,0 +1,72 @@
+﻿@model IEnumerable<DigitalWalletWebApp.Models.Transactions>
+
+@{
+    ViewData["Title"] = "filteredTransactionList";
+}
+
+<h1>filteredTransactionList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TranscationDateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TranscationType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FundsTransferedSameOwnerAccountNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FundsTransferedtoIBAN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funds)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TranscationDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TranscationType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FundsTransferedSameOwnerAccountNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FundsTransferedtoIBAN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funds)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

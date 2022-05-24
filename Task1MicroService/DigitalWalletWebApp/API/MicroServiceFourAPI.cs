@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using DigitalWalletWebApp.Model;
 using DigitalWalletWebApp.Models;
 using DigitalWalletWebApp.WebClient;
 using Newtonsoft.Json;
@@ -82,7 +83,17 @@ namespace DigitalWalletWebApp.API
             JsonElement root = jsonDocument.RootElement;
 
 
-            return JsonConvert.DeserializeObject<List<Transactions>>(root.GetString());// not sure it works requires testing
+            string test = "";
+            using (var stream = new MemoryStream())
+            {
+                Utf8JsonWriter writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+                root.WriteTo(writer);
+                writer.Flush();
+                test = Encoding.UTF8.GetString(stream.ToArray());
+            }
+
+
+            return JsonConvert.DeserializeObject<List<Transactions>>(test);
         }
 
 
@@ -96,7 +107,17 @@ namespace DigitalWalletWebApp.API
             JsonElement root = jsonDocument.RootElement;
 
 
-            return JsonConvert.DeserializeObject<List<Transactions>>(root.GetString());
+            string test = "";
+            using (var stream = new MemoryStream())
+            {
+                Utf8JsonWriter writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+                root.WriteTo(writer);
+                writer.Flush();
+                test = Encoding.UTF8.GetString(stream.ToArray());
+            }
+
+
+            return JsonConvert.DeserializeObject<List<Transactions>>(test);
         }
 
         public List<Transactions> getTranscationsByRange(string hostEndpoint, string accountNo,string start,string end)
@@ -109,7 +130,17 @@ namespace DigitalWalletWebApp.API
             JsonElement root = jsonDocument.RootElement;
 
 
-            return JsonConvert.DeserializeObject<List<Transactions>>(root.GetString());
+            string test = "";
+            using (var stream = new MemoryStream())
+            {
+                Utf8JsonWriter writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+                root.WriteTo(writer);
+                writer.Flush();
+                test = Encoding.UTF8.GetString(stream.ToArray());
+            }
+
+
+            return JsonConvert.DeserializeObject<List<Transactions>>(test);
         }
 
 

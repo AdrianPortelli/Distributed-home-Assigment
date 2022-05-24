@@ -148,7 +148,6 @@ namespace DigitalWalletWebApp.API
         public FundAccount SearchAccount(string hostEndpoint, string email, string accountNo)
         {
 
-            List<FundAccount> fundAccounts = new List<FundAccount>();
 
             var request = GetRequestMessageTwoParameters(hostEndpoint, "searchFundAccount", email,accountNo);
 
@@ -166,8 +165,18 @@ namespace DigitalWalletWebApp.API
                     return null;
                 }
             }
+            string test = "";
+            using (var stream = new MemoryStream())
+            {
+                Utf8JsonWriter writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = true });
+                root.WriteTo(writer);
+                writer.Flush();
+                test = Encoding.UTF8.GetString(stream.ToArray());
+            }
 
-            return JsonConvert.DeserializeObject<FundAccount>(root.GetString());// not sure it works requires testing
+ 
+
+            return JsonConvert.DeserializeObject<FundAccount>(test);// not sure it works requires testingreturn JsonConvert.DeserializeObject<FundAccount>(root.GetString());// not sure it works requires testing
 
         }
 

@@ -21,7 +21,40 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FundAccount" asp-action="createFundAccount">Create FundAccount</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FundAccount" asp-action="listFundAccounts">List Fund Accounts</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TransferAndDeposit" asp-action="DepositFunds">Deposit Funds</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TransferAndDeposit" asp-action="TransferToSameOwnerAccounts">Transfer Funds To Same Owner</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="TransferAndDeposit" asp-action="TransferToDifferentOwnerAccounts">Transfer Funds To Different Owner Accounts</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Transcation" asp-action="AllTranscations">Transcations</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ConvertionCalculator" asp-action="Index">ConvertionCalculator</a>
+                            </li>
+                        }
                     </ul>
+
+
                 </div>
 
 
