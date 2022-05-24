@@ -12,6 +12,7 @@ namespace DigitalWalletWebApp.DataAccess
         Task<LatestNew> getLatestNews(string email);
         Task<WriteResult> savePrefCurrecnies(string email, PrefSymbols prefSymbols);
         Task<PrefSymbols> getPrefCurrenies(string email);
+        Task<ExchangeRateModel> getLatestRates(string email);
 
     }
 }

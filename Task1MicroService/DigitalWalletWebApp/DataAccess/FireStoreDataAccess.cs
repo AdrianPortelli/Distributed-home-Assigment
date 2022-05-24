@@ -60,5 +60,23 @@ namespace DigitalWalletWebApp.DataAccess
 
             }
         }
+
+        public async Task<ExchangeRateModel> getLatestRates(string email)
+        {
+            DocumentReference docRef = db.Collection("users").Document(email).Collection("prefexchangerate").Document("latestrates");
+            DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+            if (snapshot.Exists)
+            {
+                ExchangeRateModel exchangeRateModel = snapshot.ConvertTo<ExchangeRateModel>();
+                return exchangeRateModel;
+
+            }
+            else
+            {
+                return null;
+
+            }
+        }
+
     }
 }

@@ -1,0 +1,1532 @@
+﻿@model DigitalWalletWebApp.Models.ExchangeRateModel
+
+@{
+    ViewData["Title"] = "viewLatestRates";
+}
+
+<h1>viewLatestRates</h1>
+
+<div>
+    <h4>ExchangeRateModel</h4>
+    <hr />
+    <dl class="row">
+        @if (Model.AED > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AED)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AED)
+            </dd>
+}
+        @if (Model.TRY > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TRY)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TRY)
+            </dd>
+}
+        @if (Model.AFN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AFN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AFN)
+            </dd>
+}
+        @if (Model.ALL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ALL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ALL)
+            </dd>
+}
+        @if (Model.AMD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AMD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AMD)
+            </dd>
+}
+        @if (Model.ANG > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ANG)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ANG)
+            </dd>
+}
+        @if (Model.AOA > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AOA)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AOA)
+            </dd>
+}
+        @if (Model.ARS > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ARS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ARS)
+            </dd>
+}
+        @if (Model.AUD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AUD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AUD)
+            </dd>
+}
+        @if (Model.AWG > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AWG)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AWG)
+            </dd>
+}
+        @if (Model.AZN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AZN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AZN)
+            </dd>
+}
+        @if (Model.BAM > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BAM)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BAM)
+            </dd>
+}
+        @if (Model.BBD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BBD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BBD)
+            </dd>
+}
+        @if (Model.BDT > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BDT)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BDT)
+            </dd>
+}
+        @if (Model.BGN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BGN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BGN)
+            </dd>
+}
+        @if (Model.BHD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BHD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BHD)
+            </dd>
+}
+        @if (Model.BIF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BIF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BIF)
+            </dd>
+}
+        @if (Model.BMD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BMD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BMD)
+            </dd>
+}
+        @if (Model.BND > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BND)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BND)
+            </dd>
+}
+        @if (Model.BOB > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BOB)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BOB)
+            </dd>
+}
+        @if (Model.BRL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BRL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BRL)
+            </dd>
+}
+        @if (Model.BSD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BSD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BSD)
+            </dd>
+}
+
+        @if (Model.BTC > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BTC)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BTC)
+            </dd>
+}
+        @if (Model.BTN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BTN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BTN)
+            </dd>
+}
+        @if (Model.BWP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BWP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BWP)
+            </dd>
+}
+        @if (Model.BYN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BYN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BYN)
+            </dd>
+}
+        @if (Model.BYR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BYR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BYR)
+            </dd>
+}
+        @if (Model.BZD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.BZD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.BZD)
+            </dd>
+}
+        @if (Model.CAD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CAD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CAD)
+            </dd>
+}
+        @if (Model.CDF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CDF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CDF)
+            </dd>
+}
+        @if (Model.CHF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CHF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CHF)
+            </dd>
+}
+        @if (Model.CLF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CLF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CLF)
+            </dd>
+}
+        @if (Model.CLP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CLP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CLP)
+            </dd>
+}
+        @if (Model.CNY > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CNY)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CNY)
+            </dd>
+}
+        @if (Model.COP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.COP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.COP)
+            </dd>
+}
+        @if (Model.CRC > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CRC)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CRC)
+            </dd>
+}
+        @if (Model.CUC > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CUC)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CUC)
+            </dd>
+}
+        @if (Model.CUP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CUP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CUP)
+            </dd>
+}
+        @if (Model.CVE > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CVE)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CVE)
+            </dd>
+}
+        @if (Model.CZK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CZK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CZK)
+            </dd>
+}
+        @if (Model.DJF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DJF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DJF)
+            </dd>
+}
+        @if (Model.DKK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DKK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DKK)
+            </dd>
+}
+        @if (Model.DOP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DOP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DOP)
+            </dd>
+}
+        @if (Model.DZD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DZD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DZD)
+            </dd>
+}
+        @if (Model.EGP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EGP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EGP)
+            </dd>
+}
+        @if (Model.ERN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ERN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ERN)
+            </dd>
+}
+        @if (Model.ETB > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ETB)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ETB)
+            </dd>
+}
+        @if (Model.EUR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.EUR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.EUR)
+            </dd>
+}
+        @if (Model.EUR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FJD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FJD)
+            </dd>
+}
+        @if (Model.FKP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FKP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FKP)
+            </dd>
+}
+        @if (Model.GBP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GBP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GBP)
+            </dd>
+}
+        @if (Model.GEL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GEL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GEL)
+            </dd>
+}
+        @if (Model.GGP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GGP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GGP)
+            </dd>
+}
+        @if (Model.GHS > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GHS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GHS)
+            </dd>
+}
+        @if (Model.GIP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GIP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GIP)
+            </dd>
+}
+        @if (Model.GMD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GMD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GMD)
+            </dd>
+}
+        @if (Model.GNF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GNF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GNF)
+            </dd>
+}
+        @if (Model.GTQ > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GTQ)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GTQ)
+            </dd>
+}
+        @if (Model.GYD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.GYD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.GYD)
+            </dd>
+}
+        @if (Model.HKD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HKD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HKD)
+            </dd>
+}
+        @if (Model.HNL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HNL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HNL)
+            </dd>
+}
+        @if (Model.HRK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HRK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HRK)
+            </dd>
+}
+        @if (Model.HTG > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HTG)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HTG)
+            </dd>
+}
+        @if (Model.HUF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HUF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HUF)
+            </dd>
+}
+        @if (Model.IDR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IDR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IDR)
+            </dd>
+}
+        @if (Model.ILS > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ILS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ILS)
+            </dd>
+}
+        @if (Model.IMP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IMP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IMP)
+            </dd>
+}
+        @if (Model.INR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.INR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.INR)
+            </dd>
+}
+        @if (Model.IQD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IQD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IQD)
+            </dd>
+}
+        @if (Model.IRR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IRR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IRR)
+            </dd>
+}
+        @if (Model.ISK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ISK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ISK)
+            </dd>
+}
+        @if (Model.JEP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.JEP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.JEP)
+            </dd>
+}
+        @if (Model.JMD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.JMD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.JMD)
+            </dd>
+}
+        @if (Model.JOD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.JOD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.JOD)
+            </dd>
+}
+        @if (Model.JPY > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.JPY)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.JPY)
+            </dd>
+}
+        @if (Model.KES > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KES)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KES)
+            </dd>
+}
+        @if (Model.KGS > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KGS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KGS)
+            </dd>
+}
+        @if (Model.KHR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KHR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KHR)
+            </dd>
+}
+        @if (Model.KMF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KMF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KMF)
+            </dd>
+}
+        @if (Model.KPW > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KPW)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KPW)
+            </dd>
+}
+        @if (Model.KRW > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KRW)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KRW)
+            </dd>
+}
+
+        @if (Model.KWD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KWD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KWD)
+            </dd>
+}
+        @if (Model.KYD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KYD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KYD)
+            </dd>
+}
+        @if (Model.KZT > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.KZT)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.KZT)
+            </dd>
+}
+        @if (Model.LAK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LAK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LAK)
+            </dd>
+}
+        @if (Model.LBP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LBP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LBP)
+            </dd>
+}
+        @if (Model.LKR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LKR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LKR)
+            </dd>
+}
+        @if (Model.LRD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LRD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LRD)
+            </dd>
+}
+        @if (Model.LSL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LSL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LSL)
+            </dd>
+}
+        @if (Model.LTL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LTL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LTL)
+            </dd>
+}
+        @if (Model.LVL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LVL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LVL)
+            </dd>
+}
+        @if (Model.LYD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LYD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LYD)
+            </dd>
+}
+        @if (Model.MAD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MAD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MAD)
+            </dd>
+}
+        @if (Model.MDL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MDL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MDL)
+            </dd>
+}
+        @if (Model.MGA > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MGA)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MGA)
+            </dd>
+}
+        @if (Model.MKD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MKD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MKD)
+            </dd>
+}
+        @if (Model.MMK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MMK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MMK)
+            </dd>
+}
+        @if (Model.MNT > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MNT)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MNT)
+            </dd>
+}
+        @if (Model.MOP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MOP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MOP)
+            </dd>
+}
+        @if (Model.MRO > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MRO)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MRO)
+            </dd>
+}
+        @if (Model.MUR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MUR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MUR)
+            </dd>
+}
+        @if (Model.MVR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MVR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MVR)
+            </dd>
+}
+        @if (Model.MWK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MWK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MWK)
+            </dd>
+}
+        @if (Model.MXN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MXN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MXN)
+            </dd>
+}
+        @if (Model.MYR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MYR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MYR)
+            </dd>
+}
+        @if (Model.MZN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MZN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MZN)
+            </dd>
+}
+        @if (Model.NAD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NAD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NAD)
+            </dd>
+}
+        @if (Model.NGN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NGN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NGN)
+            </dd>
+}
+        @if (Model.NIO > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NIO)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NIO)
+            </dd>
+}
+        @if (Model.NOK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NOK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NOK)
+            </dd>
+}
+        @if (Model.NPR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NPR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NPR)
+            </dd>
+}
+        @if (Model.NZD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NZD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NZD)
+            </dd>
+}
+        @if (Model.OMR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.OMR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.OMR)
+            </dd>
+}
+        @if (Model.PAB > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PAB)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PAB)
+            </dd>
+}
+        @if (Model.PEN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PEN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PEN)
+            </dd>
+}
+        @if (Model.PGK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PGK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PGK)
+            </dd>
+}
+        @if (Model.PHP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PHP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PHP)
+            </dd>
+}
+        @if (Model.PKR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PKR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PKR)
+            </dd>
+}
+        @if (Model.PLN > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PLN)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PLN)
+            </dd>
+}
+        @if (Model.PYG > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PYG)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PYG)
+            </dd>
+}
+        @if (Model.QAR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.QAR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.QAR)
+            </dd>
+}
+        @if (Model.RON > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RON)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RON)
+            </dd>
+}
+        @if (Model.RSD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RSD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RSD)
+            </dd>
+}
+        @if (Model.RUB > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RUB)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RUB)
+            </dd>
+}
+        @if (Model.RWF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RWF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RWF)
+            </dd>
+}
+        @if (Model.SAR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SAR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SAR)
+            </dd>
+}
+        @if (Model.SBD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SBD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SBD)
+            </dd>
+}
+        @if (Model.SCR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SCR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SCR)
+            </dd>
+}
+        @if (Model.SDG > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SDG)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SDG)
+            </dd>
+}
+        @if (Model.SEK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SEK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SEK)
+            </dd>
+}
+        @if (Model.SGD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SGD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SGD)
+            </dd>
+}
+        @if (Model.SHP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SHP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SHP)
+            </dd>
+}
+        @if (Model.SLL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SLL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SLL)
+            </dd>
+}
+        @if (Model.SOS > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SOS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SOS)
+            </dd>
+}
+        @if (Model.SRD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SRD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SRD)
+            </dd>
+}
+        @if (Model.STD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.STD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.STD)
+            </dd>
+}
+        @if (Model.SVC > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SVC)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SVC)
+            </dd>
+}
+        @if (Model.SYP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SYP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SYP)
+            </dd>
+}
+        @if (Model.SZL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SZL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SZL)
+            </dd>
+}
+        @if (Model.THB > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.THB)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.THB)
+            </dd>
+}
+        @if (Model.TJS > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TJS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TJS)
+            </dd>
+}
+        @if (Model.TMT > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TMT)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TMT)
+            </dd>
+}
+        @if (Model.TND > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TND)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TND)
+            </dd>
+}
+        @if (Model.TOP > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TOP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TOP)
+            </dd>
+}
+        @if (Model.TTD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TTD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TTD)
+            </dd>
+}
+        @if (Model.TWD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TWD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TWD)
+            </dd>
+}
+        @if (Model.TZS > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TZS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TZS)
+            </dd>
+}
+        @if (Model.UAH > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UAH)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UAH)
+            </dd>
+}
+        @if (Model.UGX > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UGX)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UGX)
+            </dd>
+}
+        @if (Model.USD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.USD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.USD)
+            </dd>
+}
+        @if (Model.UYU > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UYU)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UYU)
+            </dd>
+}
+        @if (Model.UZS > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UZS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UZS)
+            </dd>
+}
+        @if (Model.VEF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VEF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VEF)
+            </dd>
+}
+        @if (Model.VND > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VND)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VND)
+            </dd>
+}
+        @if (Model.VUV > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.VUV)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.VUV)
+            </dd>
+}
+        @if (Model.WST > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WST)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WST)
+            </dd>
+}
+        @if (Model.XAF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.XAF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.XAF)
+            </dd>
+}
+        @if (Model.XAG > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.XAG)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.XAG)
+            </dd>
+}
+        @if (Model.XAU > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.XAU)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.XAU)
+            </dd>
+}
+        @if (Model.XCD > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.XCD)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.XCD)
+            </dd>
+}
+        @if (Model.XDR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.XDR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.XDR)
+            </dd>
+}
+        @if (Model.XOF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.XOF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.XOF)
+            </dd>
+}
+        @if (Model.XPF > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.XPF)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.XPF)
+            </dd>
+}
+        @if (Model.YER > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.YER)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.YER)
+            </dd>
+}
+        @if (Model.ZAR > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ZAR)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ZAR)
+            </dd>
+}
+        @if (Model.ZMK > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ZMK)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ZMK)
+            </dd>
+}
+        @if (Model.ZMW > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ZMW)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ZMW)
+            </dd>
+}
+        @if (Model.ZWL > 0)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ZWL)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ZWL)
+            </dd>
+}
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

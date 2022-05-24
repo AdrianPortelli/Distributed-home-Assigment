@@ -85,5 +85,14 @@ namespace DigitalWalletWebApp.Controllers
             return View();
         }
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> viewLatestRates()
+        {
+            ExchangeRateModel exchangeRateModel = await _firestore.getLatestRates(User.Claims.ElementAt(4).Value);
+
+            return View(exchangeRateModel);
+        }
+
     }
 }
