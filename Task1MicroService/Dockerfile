@@ -1,13 +1,13 @@
-﻿FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
+﻿FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build-env
 WORKDIR /app
 
-COPY MicroServiceSeven/MicroServiceSeven.csproj MicroServiceSeven/
-RUN dotnet restore MicroServiceSeven/MicroServiceSeven.csproj
+COPY DigitalWalletWebApp/DigitalWalletWebApp.csproj DigitalWalletWebApp/
+RUN dotnet restore DigitalWalletWebApp/DigitalWalletWebApp.csproj
 
 COPY . ./
-RUN dotnet publish MicroServiceSeven/MicroServiceSeven.csproj -c Release -o out
-FROM mcr.microsoft.com/dotnet/aspnet:5.0
+RUN dotnet publish DigitalWalletWebApp/DigitalWalletWebApp.csproj -c Release -o out
+FROM mcr.microsoft.com/dotnet/aspnet:3.1
 WORKDIR /app
 EXPOSE 80
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "MicroServiceSeven.dll"]
+ENTRYPOINT ["dotnet", "DigitalWalletWebApp.dll"]

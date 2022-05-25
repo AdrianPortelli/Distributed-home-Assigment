@@ -83,7 +83,7 @@ namespace DigitalWalletWebApp.Controllers
         [HttpPost]
         public IActionResult searchFundAccount(FundAccount account)
         {
-            FundAccount fundaccount = microServiceTwoApi.SearchAccount("http://localhost:8081", User.Claims.ElementAt(4).Value, account.BankAccountNo);
+            FundAccount fundaccount = microServiceTwoApi.SearchAccount("https://microservicetwo-rlz3wkvhza-uc.a.run.app", User.Claims.ElementAt(4).Value, account.BankAccountNo);
 
             if(fundaccount == null)
             {
