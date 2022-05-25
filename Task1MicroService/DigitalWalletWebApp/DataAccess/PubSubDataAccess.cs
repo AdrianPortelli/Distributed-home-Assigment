@@ -13,10 +13,7 @@ namespace DigitalWalletWebApp.DataAccess
     {
         public async Task<string> Publish_Info_LastestExchangeRates(PrefExchangeRates prefExchangeRates)
         {
-            if(prefExchangeRates.Symbols == null)
-            {
-                prefExchangeRates.Symbols = "AED,AFN,ALL,AMD,ANG";
-            }
+       
 
             TopicName topic = new TopicName("distributedprograming", "microserivcelastestexchangerates");
             PublisherClient client = PublisherClient.Create(topic);

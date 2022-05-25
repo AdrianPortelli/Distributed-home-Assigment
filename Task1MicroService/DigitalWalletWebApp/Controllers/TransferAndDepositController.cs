@@ -29,7 +29,7 @@ namespace DigitalWalletWebApp.Controllers
         [HttpPost]
         public IActionResult DepositFunds(DepositFundsModel depositFunds)
         {
-            string check = microServiceThreeApi.depositFunds("http://localhost:8082", User.Claims.ElementAt(4).Value, depositFunds.BackAccountNo, depositFunds.Funds);
+            string check = microServiceThreeApi.depositFunds("https://microservicethree-rlz3wkvhza-uc.a.run.app", User.Claims.ElementAt(4).Value, depositFunds.BackAccountNo, depositFunds.Funds);
 
             return RedirectToAction("listFundAccounts","FundAccount");
         }
@@ -46,7 +46,7 @@ namespace DigitalWalletWebApp.Controllers
         public IActionResult TransferToSameOwnerAccounts(SameOwnerTransferModel  sameOwnertransfer)
         {
 
-            string check = microServiceThreeApi.sameOwnerFundsTransfer("http://localhost:8082", User.Claims.ElementAt(4).Value,sameOwnertransfer.DepositAccountNo,sameOwnertransfer.WithrdrawBacnkAccountNo,sameOwnertransfer.Funds);
+            string check = microServiceThreeApi.sameOwnerFundsTransfer("https://microservicethree-rlz3wkvhza-uc.a.run.app", User.Claims.ElementAt(4).Value,sameOwnertransfer.DepositAccountNo,sameOwnertransfer.WithrdrawBacnkAccountNo,sameOwnertransfer.Funds);
             return RedirectToAction("listFundAccounts", "FundAccount");
         }
 
@@ -63,7 +63,7 @@ namespace DigitalWalletWebApp.Controllers
         [HttpPost]
         public IActionResult TransferToDifferentOwnerAccounts(TransferToDifferentOwner transferToDifferentOwner)
         {
-            string check = microServiceThreeApi.differntOwnerFundTransfer("http://localhost:8082", transferToDifferentOwner.IBAN, transferToDifferentOwner.DepositEmail,  User.Claims.ElementAt(4).Value, transferToDifferentOwner.WithdrawBackAccountNo,transferToDifferentOwner.Funds);
+            string check = microServiceThreeApi.differntOwnerFundTransfer("https://microservicethree-rlz3wkvhza-uc.a.run.app", transferToDifferentOwner.IBAN, transferToDifferentOwner.DepositEmail,  User.Claims.ElementAt(4).Value, transferToDifferentOwner.WithdrawBackAccountNo,transferToDifferentOwner.Funds);
             return RedirectToAction("listFundAccounts", "FundAccount");
         }
 

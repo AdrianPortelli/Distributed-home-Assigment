@@ -26,7 +26,7 @@ namespace DigitalWalletWebApp.Controllers
         [HttpGet]
         public IActionResult AllTranscations()
         {
-            var list = microServiceFourAPI.getAllTranscations("http://localhost:8083", User.Claims.ElementAt(4).Value);
+            var list = microServiceFourAPI.getAllTranscations("https://microservicefour-rlz3wkvhza-uc.a.run.app", User.Claims.ElementAt(4).Value);
 
             return View(list);
         }
@@ -55,7 +55,7 @@ namespace DigitalWalletWebApp.Controllers
         [HttpPost]
         public IActionResult filterByAccountno(FundAccount fundAccount)
         {
-            var list = microServiceFourAPI.getTranscationsByAccountno("http://localhost:8083", User.Claims.ElementAt(4).Value, fundAccount.BankAccountNo);
+            var list = microServiceFourAPI.getTranscationsByAccountno("https://microservicefour-rlz3wkvhza-uc.a.run.app", User.Claims.ElementAt(4).Value, fundAccount.BankAccountNo);
 
 
             if(list.Count == 0)
@@ -82,7 +82,7 @@ namespace DigitalWalletWebApp.Controllers
         [HttpPost]
         public IActionResult filterByDateRange(FundAccountWithDateRange fundAccountWithDateRange)
         {
-            var list = microServiceFourAPI.getTranscationsByRange("http://localhost:8083",fundAccountWithDateRange.BankAccountNo,fundAccountWithDateRange.Start,fundAccountWithDateRange.End);
+            var list = microServiceFourAPI.getTranscationsByRange("https://microservicefour-rlz3wkvhza-uc.a.run.app", fundAccountWithDateRange.BankAccountNo,fundAccountWithDateRange.Start,fundAccountWithDateRange.End);
             
             if (list.Count == 0)
             {

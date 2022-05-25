@@ -34,7 +34,7 @@ namespace DigitalWalletWebApp.Controllers
         [HttpPost]
         public IActionResult createFundAccount(FundAccount fundaccount)
         {
-            string check = microServiceTwoApi.createAccount("http://localhost:8081", User.Claims.ElementAt(4).Value, fundaccount.BankAccountNo, fundaccount.Payee, fundaccount.BankCode, fundaccount.IBAN, fundaccount.Country, fundaccount.CurrencyCode, fundaccount.OpeningBalance);
+            string check = microServiceTwoApi.createAccount("https://microservicetwo-rlz3wkvhza-uc.a.run.app", User.Claims.ElementAt(4).Value, fundaccount.BankAccountNo, fundaccount.Payee, fundaccount.BankCode, fundaccount.IBAN, fundaccount.Country, fundaccount.CurrencyCode, fundaccount.OpeningBalance);
 
 
             if (check == null)
@@ -51,7 +51,7 @@ namespace DigitalWalletWebApp.Controllers
 
         public void disableAccount(string accountno)
         {
-            microServiceTwoApi.disableFundAccount("http://localhost:8081", User.Claims.ElementAt(4).Value, accountno);
+            microServiceTwoApi.disableFundAccount("https://microservicetwo-rlz3wkvhza-uc.a.run.app", User.Claims.ElementAt(4).Value, accountno);
         }
 
         [Authorize]
@@ -59,7 +59,7 @@ namespace DigitalWalletWebApp.Controllers
         public IActionResult listFundAccounts()
         {
 
-            var list = microServiceTwoApi.getFundList("http://localhost:8081", User.Claims.ElementAt(4).Value);
+            var list = microServiceTwoApi.getFundList("https://microservicetwo-rlz3wkvhza-uc.a.run.app", User.Claims.ElementAt(4).Value);
             return View(list);
         }
 

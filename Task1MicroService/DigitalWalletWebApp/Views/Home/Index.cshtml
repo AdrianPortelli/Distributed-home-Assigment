@@ -2,10 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
-<p>
-    <a asp-action="viewLastestNews">View Latest News</a>
-</p>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+
+        <a asp-action="viewLastestNews">View Latest News</a>
+        <br>
+        <a asp-action="savePrefSymbols">Save Prefered Exchange Rates</a>
+        <br>
+        <a asp-action="viewLatestRates">View Latest Exchange Rates</a>
+
+    </p>
+}
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>

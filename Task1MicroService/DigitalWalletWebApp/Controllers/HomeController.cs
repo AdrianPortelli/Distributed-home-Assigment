@@ -44,9 +44,16 @@ namespace DigitalWalletWebApp.Controllers
         {
             await pubSubDataAccess.Publish_Info_LastestTweets(new Models.User { Email = User.Claims.ElementAt(4).Value });
             PrefSymbols prefSymbols = await _firestore.getPrefCurrenies(User.Claims.ElementAt(4).Value);
-
-            await pubSubDataAccess.Publish_Info_LastestExchangeRates(new PrefExchangeRates { Email = User.Claims.ElementAt(4).Value, Symbols = prefSymbols.symbols });
-
+            if (prefSymbols == null)
+            {
+                PrefSymbols pref = new PrefSymbols();
+                pref.symbols = "AED,AFN,ALL,AMD,ANG";
+                await pubSubDataAccess.Publish_Info_LastestExchangeRates(new PrefExchangeRates { Email = User.Claims.ElementAt(4).Value, Symbols = pref.symbols });
+            }
+            else
+            {
+                await pubSubDataAccess.Publish_Info_LastestExchangeRates(new PrefExchangeRates { Email = User.Claims.ElementAt(4).Value, Symbols = prefSymbols.symbols });
+            }
             return RedirectToAction("Index");
         }
 
